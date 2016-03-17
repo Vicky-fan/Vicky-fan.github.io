@@ -1,0 +1,16 @@
+# Site settings
+title: Vicky's 碎碎念
+email: yuanjing.lovelife@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Nothing is impossible！Dream what you want to dream; go where you want to go; be what you want to be, because you have only one life and one chance to do all the things you want to do.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://vicky-fan.github.io/" # the base hostname & protocol for your site
+# twitter_username: Vicky
+github_username:  Vicky-fan
+
+# Build settings
+markdown: kramdown
+
+# page settings
+paginate: 8
+paginate_path: "/blog/page:num/"

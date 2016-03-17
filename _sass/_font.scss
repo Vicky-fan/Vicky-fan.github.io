@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'opensans';
+    src: url('#{$base-url}/fonts/opensans-light-webfont.eot');
+    src: url('#{$base-url}/fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$base-url}/fonts/opensans-light-webfont.woff') format('woff'),
+         url('#{$base-url}/fonts/opensans-light-webfont.ttf') format('truetype'),
+         url('#{$base-url}/fonts/opensans-light-webfont.svg#open_sanslight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'opensans';
+    src: url('#{$base-url}fonts/opensans-lightitalic-webfont.eot');
+    src: url('#{$base-url}fonts/opensans-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$base-url}fonts/opensans-lightitalic-webfont.woff') format('woff'),
+         url('#{$base-url}fonts/opensans-lightitalic-webfont.ttf') format('truetype'),
+         url('#{$base-url}fonts/opensans-lightitalic-webfont.svg#open_sanslight_italic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'opensans';
+    src: url('#{$base-url}fonts/opensans-semibold-webfont.eot');
+    src: url('#{$base-url}fonts/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$base-url}fonts/opensans-semibold-webfont.woff') format('woff'),
+         url('#{$base-url}fonts/opensans-semibold-webfont.ttf') format('truetype'),
+         url('#{$base-url}fonts/opensans-semibold-webfont.svg#open_sanssemibold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'opensans';
+    src: url('#{$base-url}fonts/opensans-semibolditalic-webfont.eot');
+    src: url('#{$base-url}fonts/opensans-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('#{$base-url}fonts/opensans-semibolditalic-webfont.woff') format('woff'),
+         url('#{$base-url}fonts/opensans-semibolditalic-webfont.ttf') format('truetype'),
+         url('#{$base-url}fonts/opensans-semibolditalic-webfont.svg#open_sanssemibold_italic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+}

@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "my test"
+date:   2015-06-08 11:46:46
+categories: vicky update
+author: Vicky
+excerpt: hello world!
+permalink: /:year-:month-:day/:title
+---
+![路灯](/assets/IMG_0061.JPG)
+
+{% highlight ruby %}
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+{% endhighlight %}
+
+{% highlight html linenos %}
+  <!DOCTYPE html>
+  <html>
+  <head>
+  	<title>test</title>
+  </head>
+  <body>
+  	<p>test </p>
+  </body>
+  </html>
+{% endhighlight %}
+
+
+{% highlight javascript linenos %}
+  function name () {
+  	console.log('1111');
+  }
+{% endhighlight %}
+
+Jekyll also offers powerful support for code snippets:
+
+Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+
+[jekyll]:      http://jekyllrb.com
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help

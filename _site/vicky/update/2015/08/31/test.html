@@ -1,0 +1,59 @@
+<canvas id="canvas" style="display: block; margin: 0 auto; padding: 0; border: 1px solid #ccc;width: 700px; height: 700px;">
+    您的浏览器尚不支持canvas
+  </canvas>
+<div id="info">
+    <input id="scaleRange" type="range" min="0.5" max="3.0" step="0.01" value="1" style="width: 400px; margin: 20px auto 0; display: block;" />
+    <div id="scaleSize" style="text-align: center; font-size: 20px;"></div>
+  </div>
+
+<script>
+  var canvas = document.getElementById('canvas'),
+    ctx = canvas.getContext('2d'),
+    img = new Image(),
+
+    scarleTxt = document.getElementById('scaleSize'),
+    scaleRange = document.getElementById('scaleRange'),
+    scale = 1.0,
+    MIN_SCALE = 0.5,
+    MAX_SCALE = 3.0;
+
+  function drawImage() {
+    var imgInitW = canvas.width,
+      imgInitH = canvas.height,
+      imgNewW = imgInitW * scale,
+      imgNewH = imgInitH * scale,
+
+      dx = (imgInitW - imgNewW) / 2,
+      dy = (imgInitH - imgNewH) / 2;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, dx, dy, imgNewW, imgNewH);
+  }
+
+  function drawScaleText(value) {
+    var text = parseFloat(value).toFixed(2);
+
+    scarleTxt.innerText = text;
+  }
+
+  scaleRange.onmousemove = function(e) {
+    scale = e.target.value;
+
+     if (scale < MIN_SCALE) {
+      scale = MIN_SCALE;
+     }else if (scale > MAX_SCALE) {
+      scale = MAX_SCALE;
+     }
+
+     drawScaleText(scale);
+     drawImage();
+  }
+
+  img.src = 'http://vicky-fan.github.io/assets/postImg/naruto.jpeg';
+  img.onload = function() {
+    drawImage();
+    drawScaleText(scaleRange.value);
+  };
+
+</script>
+
