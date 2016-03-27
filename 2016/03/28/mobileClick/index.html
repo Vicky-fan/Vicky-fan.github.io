@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="移动端,优化," />
 
 
 
@@ -57,19 +57,21 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="1.点击1.1 300ms的延迟？当我们打开没有对移动端分辨率做兼容的PC网页，它开始是缩小来让我们看到整个页面的宽度。我们需要双击放大来查看页面内容。双击——性能杀手，因为我们每点一次都要判断这是双击还是单击，浏览器设置了300ms的延迟，300ms内点击一次就是单击，点了两次就是双击。
+一次触碰的工作方式：1.touchstart2.touchend3.wait 300ms in case o">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/03/23/hello-world/index.html">
+<meta property="og:title" content="移动端优化篇——点击">
+<meta property="og:url" content="http://yoursite.com/2016/03/28/mobileClick/index.html">
 <meta property="og:site_name" content="Better Me">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-03-23T14:10:26.000Z">
+<meta property="og:description" content="1.点击1.1 300ms的延迟？当我们打开没有对移动端分辨率做兼容的PC网页，它开始是缩小来让我们看到整个页面的宽度。我们需要双击放大来查看页面内容。双击——性能杀手，因为我们每点一次都要判断这是双击还是单击，浏览器设置了300ms的延迟，300ms内点击一次就是单击，点了两次就是双击。
+一次触碰的工作方式：1.touchstart2.touchend3.wait 300ms in case o">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/5628537/13246581/91a9dd94-da4f-11e5-95ce-7b4b8553b158.gif">
+<meta property="og:updated_time" content="2016-03-27T16:39:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="移动端优化篇——点击">
+<meta name="twitter:description" content="1.点击1.1 300ms的延迟？当我们打开没有对移动端分辨率做兼容的PC网页，它开始是缩小来让我们看到整个页面的宽度。我们需要双击放大来查看页面内容。双击——性能杀手，因为我们每点一次都要判断这是双击还是单击，浏览器设置了300ms的延迟，300ms内点击一次就是单击，点了两次就是双击。
+一次触碰的工作方式：1.touchstart2.touchend3.wait 300ms in case o">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/5628537/13246581/91a9dd94-da4f-11e5-95ce-7b4b8553b158.gif">
 
 
 
@@ -87,7 +89,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | Better Me </title>
+  <title> 移动端优化篇——点击 | Better Me </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -217,7 +219,7 @@ Quick">
             
             
               
-                Hello World
+                移动端优化篇——点击
               
             
           </h1>
@@ -229,8 +231,8 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-23T22:10:26+08:00" content="2016-03-23">
-              2016-03-23
+            <time itemprop="dateCreated" datetime="2016-03-28T00:36:23+08:00" content="2016-03-28">
+              2016-03-28
             </time>
           </span>
 
@@ -240,8 +242,8 @@ Quick">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/23/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/23/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/03/28/mobileClick/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/28/mobileClick/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -263,15 +265,42 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="1-点击"><a href="#1-点击" class="headerlink" title="1.点击"></a>1.点击</h1><h2 id="1-1-300ms的延迟？"><a href="#1-1-300ms的延迟？" class="headerlink" title="1.1 300ms的延迟？"></a>1.1 300ms的延迟？</h2><p>当我们打开没有对移动端分辨率做兼容的PC网页，它开始是缩小来让我们看到整个页面的宽度。我们需要双击放大来查看页面内容。<br>双击——性能杀手，因为我们每点一次都要判断这是双击还是单击，浏览器设置了300ms的延迟，300ms内点击一次就是单击，点了两次就是双击。</p>
+<p>一次触碰的工作方式：<br>1.touchstart<br>2.touchend<br>3.wait 300ms in case of another tap<br>4.click</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="一些基于-JavaScript-的解决方案"><a href="#一些基于-JavaScript-的解决方案" class="headerlink" title="一些基于 JavaScript 的解决方案"></a>一些基于 JavaScript 的解决方案</h4><p><strong>1. zepto：用tap事件代替click</strong><br>tap: 用touchstart, touchmove, touchend模拟，满足基本条件：</p>
+<ul>
+<li>从触摸到离开时间间隔短（&gt;0, &lt;.25s）</li>
+<li>手指移动的距离短(&lt;30s)</li>
+</ul>
+<p>ps:提升用户体验：加上点击态</p>
+<ul>
+<li>使用伪类:active(缺点：滚动时候也会出发样式)</li>
+<li>使用js模拟点击态</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$el.on(<span class="string">'tap'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> $target = $(e.target);</span><br><span class="line">    $target.addClass(<span class="string">'active'</span>);</span><br><span class="line"></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    	$target.reomveClass(<span class="string">'active'</span>);</span><br><span class="line">    &#125;, <span class="number">150</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>2. FastClick</strong><br>专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。FastClick在检测到touched事件的时候，会通过DOM自定义事件立即触发一个模拟的click事件，并把浏览器在300ms后真正的click事件阻止掉。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener( <span class="string">"load"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    FastClick.attach( <span class="built_in">document</span>.body );</span><br><span class="line">&#125;, <span class="literal">false</span> );</span><br></pre></td></tr></table></figure></p>
+<p>当 FastClick 检测到当前页面使用了基于 <code>&lt;meta&gt;</code> 标签或者 <code>touch-action</code> 属性的解决方案时，会静默退出。</p>
+<h4 id="浏览器开发商提供的解决方案"><a href="#浏览器开发商提供的解决方案" class="headerlink" title="浏览器开发商提供的解决方案"></a>浏览器开发商提供的解决方案</h4><p><strong>1. 禁用缩放</strong><br><code>user-scalable=no</code><br>缺点：完全禁用缩放，即你想要放大一张图片或者一段字体较小的文本，却发现无法完成操作。</p>
+<p><strong>2. <code>width=device-width</code> </strong><br>在 Chrome 32 这一版中，他们将<a href="https://codereview.chromium.org/18850005/" target="_blank" rel="external">在包含 width=device-width 或者置为比 viewport 值更小的页面上禁用双击缩放</a><br>它只是去除了双击缩放，但用户仍可以使用双指缩放<br>这一优化目前仅被 Chrome 32 及以上所支持</p>
+<p><strong>3. IE指针事件</strong><br><code>touch-action</code>:新 CSS 属性,是否触摸操作会触发用户代理的默认行为，将其置为 none 即可移除目标元素的 300 毫秒延迟<br>在 IE10 和 IE11 上移除了所有链接和按钮元素的点击延迟。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href]</span>, <span class="selector-tag">button</span> &#123;</span><br><span class="line">    <span class="attribute">-ms-touch-action</span>: none; <span class="comment">/* IE10 */</span></span><br><span class="line">    <span class="attribute">touch-action</span>: none;     <span class="comment">/* IE11 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在 <code>&lt;body&gt;</code> 元素上设置 <code>touch-action: none</code>，这就彻底禁用了双击缩放 (注：这也同时禁用了双指缩放)</p>
+<blockquote>
+<p>JavaScript 的方案很好地解决了延迟问题，但毕竟只是临时的措施<br>浏览器本身所提供的方案,更属长久之计</p>
+</blockquote>
+<h2 id="1-2-zepto的tap点透"><a href="#1-2-zepto的tap点透" class="headerlink" title="1.2 zepto的tap点透"></a>1.2 zepto的tap点透</h2><p><img src="https://cloud.githubusercontent.com/assets/5628537/13246581/91a9dd94-da4f-11e5-95ce-7b4b8553b158.gif" alt="tap"></p>
+<h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h4><ul>
+<li>使用原生touch事件也存在点击穿透的问题，因为click是在touch系列事件发生后大约300ms才触发的，混用touch和click肯定会导致点透问题。如果绑定touch方法的dom元素在tap方法触发后会隐藏、css3 transfer移走、requestAnimationFrame移走等，而“隐藏、移走”后，它底下同一位置正好有一个dom元素绑定了click的事件、或者有浏览器认为可以被点击有交互反应的dom元素（举例：如input type=text被点击有交互反应是获得焦点并弹起虚拟键盘），则会出现“点透”现象。</li>
+<li>a标签超链接,自带默认行为（如href）,绑定tap事件处理业务后，无法直接取消默认行为。</li>
+</ul>
+<h4 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h4><ol>
+<li>FastClick</li>
+<li>将tap事件改为touchend</li>
+<li>不要混用touch和click</li>
+</ol>
+<blockquote>
+<p>方案三视情况而定<br>如果只用touch需要特别注意a标签，a标签的href也是click，需要去掉换成js控制的跳转或者用其他标签代替a<br>如果只用click，交互会有300ms延迟</p>
+</blockquote>
+<p><a href="http://blog.youyo.name/archives/zepto-tap-click-through-research.html" target="_blank" rel="external">http://blog.youyo.name/archives/zepto-tap-click-through-research.html</a></p>
 
       
     </div>
@@ -284,17 +313,29 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/移动端/" rel="tag">#移动端</a>
+          
+            <a href="/tags/优化/" rel="tag">#优化</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/03/25/resJson/" rel="next" title="高效的接口格式">
+                <i class="fa fa-chevron-left"></i> 高效的接口格式
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/23/vicky/" rel="prev" title="vicky">
-                vicky <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/28/mobileScroll/" rel="prev" title="移动端优化篇——滚动">
+                移动端优化篇——滚动 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -321,8 +362,8 @@ Quick">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/23/hello-world/"
-           data-title="Hello World" data-url="http://yoursite.com/2016/03/23/hello-world/">
+      <div class="ds-thread" data-thread-key="2016/03/28/mobileClick/"
+           data-title="移动端优化篇——点击" data-url="http://yoursite.com/2016/03/28/mobileClick/">
       </div>
     
   </div>
@@ -377,7 +418,7 @@ Quick">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -411,7 +452,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-点击"><span class="nav-number">1.</span> <span class="nav-text">1.点击</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-300ms的延迟？"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 300ms的延迟？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法："><span class="nav-number">1.1.1.</span> <span class="nav-text">解决方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一些基于-JavaScript-的解决方案"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">一些基于 JavaScript 的解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器开发商提供的解决方案"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">浏览器开发商提供的解决方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-zepto的tap点透"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 zepto的tap点透</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题："><span class="nav-number">1.2.0.1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法：-1"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">解决方法：</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -437,7 +478,7 @@ Quick">
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Vicky</span>
+  <span class="author" itemprop="copyrightHolder">Vicky&nbsp;&nbsp;&nbsp;路漫漫其修远兮 吾将上下而求索</span>
 </div>
 
 <div class="powered-by">
@@ -685,7 +726,7 @@ Quick">
       ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
+      (document.getElementById('footer')
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
