@@ -79,7 +79,7 @@
 将这些位图交给排序c">
 <meta property="og:image" content="https://cloud.githubusercontent.com/assets/5628537/14424174/3d7778e2-0012-11e6-9c5d-f3f1aca7e0d3.jpg">
 <meta property="og:image" content="https://cloud.githubusercontent.com/assets/5628537/14435776/12d05728-004c-11e6-9c55-7e2268c341f4.jpg">
-<meta property="og:updated_time" content="2016-04-12T04:58:16.000Z">
+<meta property="og:updated_time" content="2016-04-12T07:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我所理解的css3动画">
 <meta name="twitter:description" content="我们常用css3的Animations或者Transitions来做动画，有些动画会很流畅，有些却不连贯。为什么？首先让我们先来了解一下浏览器是怎样工作的。  
@@ -328,9 +328,13 @@
 <p>Timeline 图如下：<br><img src="https://cloud.githubusercontent.com/assets/5628537/14435776/12d05728-004c-11e6-9c55-7e2268c341f4.jpg" alt="animate-transform-2x"></p>
 <p>如我们所见，CSS transform不改变元素或元素周围的布局。<br>只需要生成该元素的位图并上传到GPU在动画的开始。之后，浏览器不需要做更多的布局，绘画，或位图上传。反而，浏览器会借助GPU的特殊能力来让元素改变位置、放大、旋转。</p>
 <h2 id="触发重新布局的属性"><a href="#触发重新布局的属性" class="headerlink" title="触发重新布局的属性"></a>触发重新布局的属性</h2><p>有些节点，当你改变他时，会需要重新布局（这也意味着需要重新计算其他被影响的节点的位置和大小）。这种情况下，被影响的DOM树越大（可见节点），重绘所需要的时间就会越长，而渲染一帧动画的时间也相应变长。</p>
-<p><table><br>  <tr><td>width</td><td>height</td><td>padding</td><td>margin</td></tr><br>  <tr><td>display</td><td>border-width</td><td>border</td><td>top</td></tr><br>  <tr><td>position</td><td>font-size</td><td>float</td><td>text-align</td></tr><br>  <tr><td>overflow-y</td><td>font-weight</td><td>overflow</td><td>left</td></tr><br>  <tr><td>font-family</td><td>line-height</td><td>vertical-align</td><td>right</td></tr><br>  <tr><td>clear</td><td>white-space</td><td>bottom</td><td>min-height</td></tr><br></table><br>更多请见：<a href="http://goo.gl/lPVJY6" target="_blank" rel="external">http://goo.gl/lPVJY6</a></p>
+<table><br>  <tr><td>width</td><td>height</td><td>padding</td><td>margin</td></tr><br>  <tr><td>display</td><td>border-width</td><td>border</td><td>top</td></tr><br>  <tr><td>position</td><td>font-size</td><td>float</td><td>text-align</td></tr><br>  <tr><td>overflow-y</td><td>font-weight</td><td>overflow</td><td>left</td></tr><br>  <tr><td>font-family</td><td>line-height</td><td>vertical-align</td><td>right</td></tr><br>  <tr><td>clear</td><td>white-space</td><td>bottom</td><td>min-height</td></tr><br></table>
+
+<p>更多请见：<a href="http://goo.gl/lPVJY6" target="_blank" rel="external">http://goo.gl/lPVJY6</a></p>
 <h2 id="触发重绘的属性"><a href="#触发重绘的属性" class="headerlink" title="触发重绘的属性"></a>触发重绘的属性</h2><p>重绘需要重新上传到GPU，在移动设备上，这是特别昂贵，因为CPU没有PC强大，这意味着绘画的工作需要更长的时间；以及CPU和GPU之间的带宽是有限的，所以纹理上传需要很长的时间。</p>
-<p><table><br>  <tr><td>color</td><td>border-style</td><td>visibility</td><td>background</td></tr><br>  <tr><td>text-decoration</td><td>background-image</td><td>background-position</td><td>background-repeat</td></tr><br>  <tr><td>outline-color</td><td>outline</td><td>outline-style</td><td>border-radius</td></tr><br>  <tr><td>outline-width</td><td>box-shadow</td><td>background-size</td><td></td></tr><br></table><br>更多请见：<a href="http://goo.gl/lPVJY6" target="_blank" rel="external">http://goo.gl/lPVJY6</a></p>
+<table><br>  <tr><td>color</td><td>border-style</td><td>visibility</td><td>background</td></tr><br>  <tr><td>text-decoration</td><td>background-image</td><td>background-position</td><td>background-repeat</td></tr><br>  <tr><td>outline-color</td><td>outline</td><td>outline-style</td><td>border-radius</td></tr><br>  <tr><td>outline-width</td><td>box-shadow</td><td>background-size</td><td></td></tr><br></table>
+
+<p>更多请见：<a href="http://goo.gl/lPVJY6" target="_blank" rel="external">http://goo.gl/lPVJY6</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>避免使用会触发重布局和重绘的属性，尽量使用浏览器绘制效率较高transform 和 opacity（GPU在绘画时只是简单的降低之前已经画好的纹理的alpha值来达到效果，并不需要整体的重绘）。</p>
 <h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><ul>
 <li>解决Chrome动画”卡顿”的办法：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-transform</span><span class="selector-pseudo">:transition3d(0</span>,0,0);</span><br><span class="line">或</span><br><span class="line"><span class="selector-tag">-webkit-transform</span><span class="selector-pseudo">:translateZ(0)</span>;</span><br></pre></td></tr></table></figure>
