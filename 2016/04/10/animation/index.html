@@ -1,0 +1,790 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="优化,css3,动画," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="我们常用css3的Animations或者Transitions来做动画，有些动画会很流畅，有些却不连贯。为什么？首先让我们先来了解一下浏览器是怎样工作的。  
+浏览器内部通过main thread和compositor thread来渲染页面main thread：
+
+执行javascript
+计算HTML元素的节点样式
+为每个节点生成图形和位置
+将每个节点绘制填充到位图中
+将这些位图交给排序c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我所理解的css3动画">
+<meta property="og:url" content="http://yoursite.com/2016/04/10/animation/index.html">
+<meta property="og:site_name" content="Better Me">
+<meta property="og:description" content="我们常用css3的Animations或者Transitions来做动画，有些动画会很流畅，有些却不连贯。为什么？首先让我们先来了解一下浏览器是怎样工作的。  
+浏览器内部通过main thread和compositor thread来渲染页面main thread：
+
+执行javascript
+计算HTML元素的节点样式
+为每个节点生成图形和位置
+将每个节点绘制填充到位图中
+将这些位图交给排序c">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/5628537/14424174/3d7778e2-0012-11e6-9c5d-f3f1aca7e0d3.jpg">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/5628537/14435776/12d05728-004c-11e6-9c55-7e2268c341f4.jpg">
+<meta property="og:updated_time" content="2016-04-12T04:10:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我所理解的css3动画">
+<meta name="twitter:description" content="我们常用css3的Animations或者Transitions来做动画，有些动画会很流畅，有些却不连贯。为什么？首先让我们先来了解一下浏览器是怎样工作的。  
+浏览器内部通过main thread和compositor thread来渲染页面main thread：
+
+执行javascript
+计算HTML元素的节点样式
+为每个节点生成图形和位置
+将每个节点绘制填充到位图中
+将这些位图交给排序c">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/5628537/14424174/3d7778e2-0012-11e6-9c5d-f3f1aca7e0d3.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 我所理解的css3动画 | Better Me </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Better Me</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                我所理解的css3动画
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-10T21:43:53+08:00" content="2016-04-10">
+              2016-04-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/10/animation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/animation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我们常用css3的Animations或者Transitions来做动画，有些动画会很流畅，有些却不连贯。为什么？<br>首先让我们先来了解一下浏览器是怎样工作的。  </p>
+<h2 id="浏览器内部"><a href="#浏览器内部" class="headerlink" title="浏览器内部"></a>浏览器内部</h2><p>通过main thread和compositor thread来渲染页面<br>main thread：</p>
+<ul>
+<li>执行javascript</li>
+<li>计算HTML元素的节点样式</li>
+<li>为每个节点生成图形和位置</li>
+<li>将每个节点绘制填充到位图中</li>
+<li>将这些位图交给排序compositor thread</li>
+</ul>
+<p>compositor thread：</p>
+<ul>
+<li>通过GPU将位图绘制到屏幕</li>
+<li>叫main thread更新可见的位图或者即页面上将可见的部分。</li>
+<li>计算出页面的哪些部分是可见的</li>
+<li>计算哪些部分是即将可见的当你滚动</li>
+<li>移动部分页面当你滚动的时候</li>
+</ul>
+<h2 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h2><p>really fast at:</p>
+<ul>
+<li>绘制到屏幕</li>
+<li>重复绘制相同的位图</li>
+<li>绘制在不同位置，旋转，放大的位图。</li>
+</ul>
+<p>relatively slow at:</p>
+<ul>
+<li>加载位图到内存</li>
+</ul>
+<h2 id="浏览器fast-to-animate"><a href="#浏览器fast-to-animate" class="headerlink" title="浏览器fast to animate"></a>浏览器fast to animate</h2><ol>
+<li>CSS transform<ul>
+<li>position: <code>transform: translate(?px, ?px)</code></li>
+<li>scale:    <code>transform: scale(?)</code></li>
+<li>rotate:   <code>transform: rotate(?deg)</code></li>
+</ul>
+</li>
+<li>opacity: <code>opacity: 0...1</code></li>
+</ol>
+<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><p>有了上面的粗略认识，让我们来看看浏览器的main thread和compositor thread是怎么处理css动画的。</p>
+<h3 id="transition-height"><a href="#transition-height" class="headerlink" title="transition: height"></a><code>transition: height</code></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">transition</span>: height <span class="number">1s</span> linear;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>main thread和compositor thread的Timeline 图如下，橙色代表耗时操作，蓝色代表快的操作<br><img src="https://cloud.githubusercontent.com/assets/5628537/14424174/3d7778e2-0012-11e6-9c5d-f3f1aca7e0d3.jpg" alt="animate-height-2x"></p>
+<p>我们可以看到有很多黄色耗时的操作。transition的每一帧操作，浏览器都要layout, painting, and uploading new bitmaps to the GPU.<br>浏览器之所以每一帧都这么生硬是因为元素的内容不断的变化，改变一个元素的高度可能会导致其子元素的大小也会改变，所以浏览器必须执行布局。布局结束后，main thread必须重新生成元素的位图。</p>
+<h3 id="transition-transform"><a href="#transition-transform" class="headerlink" title="transition: transform"></a><code>transition: transform</code></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(0.5);</span><br><span class="line">    <span class="attribute">transition</span>: transform <span class="number">1s</span> linear;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Timeline 图如下：<br><img src="https://cloud.githubusercontent.com/assets/5628537/14435776/12d05728-004c-11e6-9c55-7e2268c341f4.jpg" alt="animate-transform-2x"></p>
+<p>如我们所见，CSS transform不改变元素或元素周围的布局。<br>只需要生成该元素的位图并上传到GPU在动画的开始。之后，浏览器不需要做更多的布局，绘画，或位图上传。反而，浏览器会借助GPU的特殊能力来让元素改变位置、放大、旋转。</p>
+<h2 id="触发重新布局的属性"><a href="#触发重新布局的属性" class="headerlink" title="触发重新布局的属性"></a>触发重新布局的属性</h2><p>有些节点，当你改变他时，会需要重新布局（这也意味着需要重新计算其他被影响的节点的位置和大小）。这种情况下，被影响的DOM树越大（可见节点），重绘所需要的时间就会越长，而渲染一帧动画的时间也相应变长。</p>
+<p><table><br>  <tbody><br>      <tr><td>width</td><td>height</td><td>padding</td><td>margin</td></tr><br>      <tr><td>display</td><td>border-width</td><td>border</td><td>top</td></tr><br>      <tr><td>position</td><td>font-size</td><td>float</td><td>text-align</td></tr><br>      <tr><td>overflow-y</td><td>font-weight</td><td>overflow</td><td>left</td></tr><br>      <tr><td>font-family</td><td>line-height</td><td>vertical-align</td><td>right</td></tr><br>      <tr><td>clear</td><td>white-space</td><td>bottom</td><td>min-height</td></tr><br>    </tbody><br></table><br>更多请见：<a href="http://goo.gl/lPVJY6" target="_blank" rel="external">http://goo.gl/lPVJY6</a></p>
+<h2 id="触发重绘的属性"><a href="#触发重绘的属性" class="headerlink" title="触发重绘的属性"></a>触发重绘的属性</h2><p>重绘需要重新上传到GPU，在移动设备上，这是特别昂贵，因为CPU没有PC强大，这意味着绘画的工作需要更长的时间；以及CPU和GPU之间的带宽是有限的，所以纹理上传需要很长的时间。</p>
+<p><table><br>    <tbody><br>        <tr><td>color</td><td>border-style</td><td>visibility</td><td>background</td></tr><br>      <tr><td>text-decoration</td><td>background-image</td><td>background-position</td><td>background-repeat</td></tr><br>      <tr><td>outline-color</td><td>outline</td><td>outline-style</td><td>border-radius</td></tr><br>      <tr><td>outline-width</td><td>box-shadow</td><td>background-size</td><td></td></tr><br>    </tbody><br></table><br>更多请见：<a href="http://goo.gl/lPVJY6" target="_blank" rel="external">http://goo.gl/lPVJY6</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>避免使用会触发重布局和重绘的属性，尽量使用浏览器绘制效率较高transform 和 opacity（GPU在绘画时只是简单的降低之前已经画好的纹理的alpha值来达到效果，并不需要整体的重绘）。</p>
+<h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><ul>
+<li>解决Chrome动画”卡顿”的办法：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-transform</span><span class="selector-pseudo">:transition3d(0</span>,0,0);</span><br><span class="line">或</span><br><span class="line"><span class="selector-tag">-webkit-transform</span><span class="selector-pseudo">:translateZ(0)</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>开启GPU硬件加速模式，从而让浏览器在渲染动画时从CPU转向GPU,我们设置值为0后，并没有真正使用3D效果，但浏览器却因此开启了GPU硬件加速模式。需谨慎,使用GPU可能会导致严重的性能问题，因为它增加了内存的使用，而且它会减少移动端设备的电池寿命。</p>
+<ul>
+<li>使用了CSS3的Transition属性Chrome可能会导致浏览器频繁闪烁或抖动,可以使用下面的解决方案<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-backface-visibility</span>: <span class="selector-tag">hidden</span>;（设置进行转换的元素的背面在面对用户时是否可见：隐藏）</span><br><span class="line"><span class="selector-tag">-webkit-transform-style</span>: <span class="selector-tag">preserve-3d</span>; （设置内嵌的元素在 3<span class="selector-tag">D</span> 空间如何呈现：保留 3<span class="selector-tag">D</span> ）</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><p>【1】 <a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/" target="_blank" rel="external">High Performance Animations</a><br>【2】 <a href="http://blogs.adobe.com/webplatform/2014/03/18/css-animations-and-transitions-performance/" target="_blank" rel="external">CSS animations and transitions performance:<br>looking inside the browser</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/优化/" rel="tag">#优化</a>
+          
+            <a href="/tags/css3/" rel="tag">#css3</a>
+          
+            <a href="/tags/动画/" rel="tag">#动画</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/28/Performace-index/" rel="next" title="性能测试——RAIL性能模型">
+                <i class="fa fa-chevron-left"></i> 性能测试——RAIL性能模型
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/10/animation/"
+           data-title="我所理解的css3动画" data-url="http://yoursite.com/2016/04/10/animation/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Vicky" />
+          <p class="site-author-name" itemprop="name">Vicky</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮 吾将上下而求索</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器内部"><span class="nav-number">1.</span> <span class="nav-text">浏览器内部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU"><span class="nav-number">2.</span> <span class="nav-text">GPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器fast-to-animate"><span class="nav-number">3.</span> <span class="nav-text">浏览器fast to animate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举个栗子"><span class="nav-number">4.</span> <span class="nav-text">举个栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transition-height"><span class="nav-number">4.1.</span> <span class="nav-text">transition: height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transition-transform"><span class="nav-number">4.2.</span> <span class="nav-text">transition: transform</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发重新布局的属性"><span class="nav-number">5.</span> <span class="nav-text">触发重新布局的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发重绘的属性"><span class="nav-number">6.</span> <span class="nav-text">触发重绘的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些问题"><span class="nav-number">8.</span> <span class="nav-text">一些问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献："><span class="nav-number">9.</span> <span class="nav-text">参考文献：</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vicky&nbsp;&nbsp;&nbsp;路漫漫其修远兮 吾将上下而求索</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vicky-fangithubio"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementById('footer')
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
