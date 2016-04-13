@@ -413,6 +413,22 @@
   
 
   
+  <script  type="text/javascript">
+      var OriginTitile=document.title;
+      var st;
+      document.addEventListener('visibilitychange',function(){
+      if(document.hidden){
+        document.title="(╭￣3￣)╭♡记得回来看我哦";
+        clearTimeout(st);
+      }else{
+        document.title='(,,• ₃ •,,) 欢迎来到我的世界~ '+OriginTitile;
+        st=setTimeout(function(){
+            document.title=OriginTitile;
+        },000);
+      }
+      });
+</script>
+
 
 </body>
 </html>
