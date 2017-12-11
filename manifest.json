@@ -1,0 +1,35 @@
+{
+    "scope": "/",
+    "name": "BetterMe",
+    "short_name": "小静静杂货站",
+    "start_url": "/",
+    "display": "standalone",
+    "description": "路漫漫其修远兮,吾将上下而求索。",
+    "dir": "rtl",
+    "lang": "cn",
+    "orientation": "portrait",
+    "theme_color": "#f5f5f5",
+    "background_color": "#fff",
+    "icons": [
+        {
+            "src": "images/short/blog-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "images/short/blog-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "images/short/blog-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/short/blog-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ]
+}
