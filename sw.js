@@ -56,5 +56,6 @@ function onActivate(event) {
     ]))
 }
 //
+self.addEventListener("fetch", function(event) {});
 self.addEventListener('install', onInstall);
 self.addEventListener("activate", onActivate);
