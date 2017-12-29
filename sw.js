@@ -55,7 +55,111 @@ function onActivate(event) {
         removeOldCache()
     ]))
 }
+
+
+/**
+ * Fetch
+ */
+
+// 当网络离线或请求发生了错误，使用离线资源替代 request 请求
+function offlineResponse(request) {
+    log('(offline)', request.method, request.url);
+    if (request.url.match(/\.(jpg|png|gif|svg|jpeg)(\?.*)?$/)) {
+        return caches.match('/wp-content/themes/Kratos/images/default.jpg');
+    } else {
+        return caches.match('/offline.html');
+    }
+}
+
+// 从缓存读取或使用离线资源替代
+function cachedOrOffline(request) {
+    return caches
+        .match(request)
+        .then((response) => response || offlineResponse(request));
+}
+
+// 从网络请求，并将请求成功的资源缓存
+function networkedAndCache(request) {
+    return fetch(request)
+        .then(response => {
+            const copy = response.clone();
+
+            caches.open(cacheKey('resources'))
+                .then(cache => {
+                    cache.put(request, copy);
+                });
+
+            console.log("(network: cache write)", request.method, request.url);
+            return response;
+        });
+}
+
+// 优先从 cache 读取，读取失败则从网络请求并缓存。网络请求也失败，则使用离线资源替代
+function cachedOrNetworked(request) {
+    return caches.match(request)
+        .then((response) => {
+            console.log(response ? '(cached)' : '(network: cache miss)', request.method, request.url);
+            return response ||
+                networkedAndCache(request)
+                .catch(() => offlineResponse(request));
+        });
+}
+
+// 优先从网络请求，失败则使用离线资源替代
+function networkedOrOffline(request) {
+    return fetch(request)
+        .then(response => {
+            console.log('(network)', request.method, request.url);
+            return response;
+        })
+        .catch(() => offlineResponse(request));
+}
+
+// 不需要缓存的请求
+function shouldAlwaysFetch(request) {
+    return request.method !== 'GET';
+}
+
+// 缓存 html 页面
+function shouldFetchAndCache(request) {
+    return (/text\/html/i).test(request.headers.get('Accept'));
+}
+
+function onFetch(event) {
+    const request = event.request;
+
+    // 应当永远从网络请求的资源
+    // 如果请求失败，则使用离线资源替代
+    if (shouldAlwaysFetch(request)) {
+        console.log('AlwaysFetch request: ', event.request.url);
+        event.respondWith(networkedOrOffline(request));
+        return;
+    }
+
+    // 应当从网络请求并缓存的资源
+    // 如果请求失败，则尝试从缓存读取，读取失败则使用离线资源替代
+    if (shouldFetchAndCache(request)) {
+        event.respondWith(
+            networkedAndCache(request).catch(() => cachedOrOffline(request))
+        );
+        return;
+    }
+
+    event.respondWith(cachedOrNetworked(request));
+}
 //
-self.addEventListener("fetch", function(event) {});
+// self.addEventListener("fetch", function(event) {
+//     event.respondWith(caches.match(event.request).catch(function() {
+//         return fetch(event.request);
+//     }).then(function(response) {
+//         caches.open(version).then(function(cache) {
+//             cache.put(event.request, response);
+//         });
+//         return response.clone();
+//     }).catch(function() {
+//         return caches.match('./static/mm1.jpg');
+//     }));
+// });
+self.addEventListener('fetch', onFetch);
 self.addEventListener('install', onInstall);
 self.addEventListener("activate", onActivate);
