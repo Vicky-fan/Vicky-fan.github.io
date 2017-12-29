@@ -63,7 +63,7 @@ function onActivate(event) {
 
 // 当网络离线或请求发生了错误，使用离线资源替代 request 请求
 function offlineResponse(request) {
-    log('(offline)', request.method, request.url);
+    console.log('(offline)', request.method, request.url);
     if (request.url.match(/\.(jpg|png|gif|svg|jpeg)(\?.*)?$/)) {
         return caches.match('/wp-content/themes/Kratos/images/default.jpg');
     } else {
